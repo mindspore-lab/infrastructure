@@ -1,4 +1,4 @@
-name: mindspore-ecosystem repos mirror periodic job
+name: mindspore-lab repos mirror periodic job
 
 on:
   pull_request:
@@ -16,15 +16,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Mirror the github/mindspore-ecosystem org repos to gitee/mindspore-ecosystem.
+      - name: Mirror the github/mindspore-lab org repos to gitee/mindspore-lab.
         uses: Yikun/hub-mirror-action@v1.0
         with:
-          src: github/mindspore-ecosystem
-          dst: gitee/mindspore-ecosystem
+          src: github/mindspore-lab
+          dst: gitee/mindspore-lab
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token:  ${{ secrets.GITEE_TOKEN }}
           account_type: org
           clone_style: ssh
           force_update: true
-          black_list: 'infrastructure,mindnlp-test'
+          black_list: '-infrastructure,mindnlp-test'
           debug: true

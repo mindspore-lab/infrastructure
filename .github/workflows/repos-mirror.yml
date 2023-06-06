@@ -16,6 +16,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Mirror the github/mindspore-lab repos to openi.pcl.ac.cn/MindSpore.
+        uses: Yikun/hub-mirror-action@v1.0
+        with:
+          src: github/mindspore-lab
+          dst: openi.pcl.ac.cn/MindSpore
+          dst_key: ${{ secrets.SYNC_MINDSPORE_LAB_PRIVATE_KEY }}
+          dst_token: ${{ secrets.SYNC_MINDSPORE_LAB_TOKEN }}
+          account_type: org
+          clone_style: ssh
+          force_update: true
+          static_list: 'mindcv'
+          debug: true
+
       - name: Mirror the github/mindspore-lab org repos to gitee/mindspore-lab.
         uses: Yikun/hub-mirror-action@v1.0
         with:

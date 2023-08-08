@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Mirror the github/mindspore-lab org repos to gitee/mindspore-lab.
-        uses: Yikun/hub-mirror-action@v1.0
+        uses: Yikun/hub-mirror-action@master
         with:
           src: github/mindspore-lab
           dst: gitee/mindspore-lab
@@ -30,7 +30,7 @@ jobs:
           debug: true
 
       - name: Mirror the gitee/mindspore repos to github/mindspore-lab.
-        uses: Yikun/hub-mirror-action@v1.0
+        uses: Yikun/hub-mirror-action@master
         with:
           src: gitee/mindspore
           dst: github/mindspore-lab

@@ -17,7 +17,7 @@ jobs:
 
     steps:
      - name: Mirror the github/mindspore-lab repos to openi.pcl.ac.cn/MindSpore.
-       uses: jianyunchao/hub-mirror-action@v1.0
+       uses: jianyunchao/hub-mirror-action@master
        with:
          src: github/mindspore-lab
          dst: openi.pcl.ac.cn/MindSpore

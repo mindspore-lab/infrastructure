@@ -62,7 +62,7 @@ jobs:
           clone_style: ssh
           force_update: true
           timeout: '1h'
-          static_list: "mindrl,mindpet,mindrlhf,mindone,mindrec,mindcv,mindnlp,mindaudio,mindocr,mindyolo,mindface"
+          static_list: "mindrl,mindpet,mindrlhf,mindone,mindrec,mindcv,mindnlp,mindaudio,mindocr,mindyolo"
           debug: true
 
       - name: Mirror the gitee/mindspore repos to openi.pcl.ac.cn/MindSpore.

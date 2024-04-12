@@ -36,5 +36,5 @@ jobs:
           clone_style: ssh
           force_update: true
           timeout: '1h'
-          static_list: "mindrl,mindpet,mindrlhf,mindone,mindrec,mindcv,mindnlp,mindaudio,mindocr,mindyolo"
+          static_list: "mindface"
           debug: true

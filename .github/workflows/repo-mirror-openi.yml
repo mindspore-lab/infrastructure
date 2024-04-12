@@ -1,0 +1,40 @@
+name: mindspore-lab repos mirror periodic job
+
+on:
+  pull_request:
+    paths:
+    - '.github/workflows/**'
+    # Runs at every pull requests submitted in master branch
+    branches: [ master, main ]
+  schedule:
+    # Runs at 0,2,4,6...,22th hour every day (every 2 hours)
+    - cron:  '0 */2 * * *'
+  # 手动触发事件
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+
+jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mirror the github/mindspore-lab repos to openi.pcl.ac.cn/MindSpore.
+        uses: jianyunchao/hub-mirror-action@master
+        with:
+          src: github/mindspore-lab
+          dst: openi.pcl.ac.cn/MindSpore
+          dst_key: ${{ secrets.OPENI_PRIVATE_KEY }}
+          dst_token: ${{ secrets.OPENI_TOKEN }}
+          account_type: org
+          clone_style: ssh
+          force_update: true
+          timeout: '1h'
+          static_list: "mindrl,mindpet,mindrlhf,mindone,mindrec,mindcv,mindnlp,mindaudio,mindocr,mindyolo"
+          debug: true

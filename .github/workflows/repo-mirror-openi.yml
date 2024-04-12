@@ -38,3 +38,17 @@ jobs:
           timeout: '1h'
           static_list: "mindface"
           debug: true
+
+      - name: Mirror the gitee/mindspore repos to openi.pcl.ac.cn/MindSpore.
+        uses: jianyunchao/hub-mirror-action@master
+        with:
+          src: gitee/mindspore
+          dst: openi.pcl.ac.cn/MindSpore
+          dst_key: ${{ secrets.OPENI_PRIVATE_KEY }}
+          dst_token:  ${{ secrets.OPENI_TOKEN }}
+          account_type: org
+          clone_style: ssh
+          force_update: true
+          timeout: '1h'
+          static_list: 'mindscience,mindarmour'
+          debug: true

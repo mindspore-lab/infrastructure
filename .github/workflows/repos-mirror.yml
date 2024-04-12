@@ -64,17 +64,3 @@ jobs:
           timeout: '1h'
           static_list: "mindrl,mindpet,mindrlhf,mindone,mindrec,mindcv,mindnlp,mindaudio,mindocr,mindyolo"
           debug: true
-
-      - name: Mirror the gitee/mindspore repos to openi.pcl.ac.cn/MindSpore.
-        uses: jianyunchao/hub-mirror-action@master
-        with:
-          src: gitee/mindspore
-          dst: openi.pcl.ac.cn/MindSpore
-          dst_key: ${{ secrets.OPENI_PRIVATE_KEY }}
-          dst_token:  ${{ secrets.OPENI_TOKEN }}
-          account_type: org
-          clone_style: ssh
-          force_update: true
-          timeout: '1h'
-          static_list: 'mindformers,graphlearning,mindpandas,hub,mindinsight,serving,federated,golden-stick,xai,ide-plugin'
-          debug: true
